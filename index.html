@@ -152,6 +152,250 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-建立+美化个人博客超详细教学(GitHub+HEXO)" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="建立-美化个人博客超详细教学-GitHub-HEXO"><a href="#建立-美化个人博客超详细教学-GitHub-HEXO" class="headerlink" title="建立+美化个人博客超详细教学(GitHub+HEXO)"></a>建立+美化个人博客超详细教学(GitHub+HEXO)</h1><h4 id="前置必要操作一：-node-js-安装"><a href="#前置必要操作一：-node-js-安装" class="headerlink" title="前置必要操作一： node.js 安装"></a>前置必要操作一： <code>node.js</code> 安装</h4><ul>
+<li><p>官网下载安装包(长期维护版)：<a target="_blank" rel="noopener" href="https://nodejs.org/zh-cn/">Node.js (nodejs.org)</a><img src="nodejs下载.png" alt="nodejs" style="zoom:67%;" /></p>
+</li>
+<li><p>重要安装步骤（剩下的的全部同意、下一步就好了）<br><img src="./nodejs安装1.png" style="zoom: 67%;" /><img src="./nodejs安装2.png" style="zoom: 67%;" /></p>
+</li>
+<li><p>阶段检查一：以上步骤是否成功</p>
+<ul>
+<li>右键状态栏中的win图标，打开 命令提示符(管理员)</li>
+<li>分别输入 <code>node -v</code> 和 <code>npm -v</code> ，能正确显示版本号即表示安装成功。<br><img src="./nodejs%E5%AE%89%E8%A3%85%E6%88%90%E5%8A%9F%E6%B5%8B%E8%AF%951.png"></li>
+</ul>
+</li>
+<li><p>配置 <code>nodejs</code> 模块安装路径和缓存路径</p>
+<ul>
+<li><p>在 <code>nodejs</code> 根目录创建 <code>node_global</code>，<code>node_cache</code> 文件夹</p>
+</li>
+<li><p>在上述步骤中打开的 命令提示符(管理员) 中输入命令并回车：(将其中的路径换成你自己的路径！！)</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm config set prefix &quot;E:\Program_Files\nodejs\node_global&quot;</span><br><span class="line">npm config set cache &quot;E:\Program_Files\nodejs\node_cache&quot;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>配置环境变量</p>
+<ul>
+<li>打开配置环境变量的窗口：右键此电脑-&gt;属性-&gt;高级系统设置-&gt;高级-&gt;环境变量</li>
+<li>新建 <code>NODE_PATH</code> 变量指向自己 <code>nodejs</code> 安装目录的 <code>node_modules</code> 文件夹<img src="./nodejs新建环境变量1.png" style="zoom:67%;" /></li>
+<li>向path中添加 <code>nodejs</code> 安装目录、 <code>nodejs</code> 安装目录下的 <code>node_global</code> 文件夹<img src="./nodejs新建环境变量2.png" style="zoom:67%;" /></li>
+</ul>
+</li>
+<li><p>阶段检查二：以上步骤是否成功</p>
+<ul>
+<li> 命令提示符(管理员) 中输入命令、回车，等待安装结束（比较久）。</li>
+</ul>
+  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install express -g</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>错误情况一：安装过程中报错。需要删除 <code>C:\Users\Usersname\.ssh\</code> 下的<code>.npmrc</code>文件，并重新执行命令。其中，<code>Usersname</code>是你自己电脑的登录用户名。</p>
+</li>
+<li><p>进入 <code>nodejs</code> 根目录下的 <code>node_global/node_modules</code> 文件夹查看安装结果<br><img src="./nodejs%E5%AE%89%E8%A3%85%E6%88%90%E5%8A%9F%E6%B5%8B%E8%AF%952.png"></p>
+</li>
+<li><p>错误情况二：安装过程未报错，但目录下找不到该文件夹。可能的原因是执行命令时没有管理员权限，从 <strong>阶段检查一</strong> 以下的步骤需要重新来过。</p>
+</li>
+</ul>
+</li>
+<li><p>配置淘宝镜像源以加速模块下载</p>
+<ul>
+<li> (命令提示符(管理员) 中输入命令)</li>
+</ul>
+  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g cnpm --registry=https://registry.npm.taobao.org</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>输入 <code>cnpm -v</code> 能正确提示版本号即安装成功</li>
+</ul>
+</li>
+</ul>
+<h4 id="前置必要操作二：-git-安装、注册GitHub账号并建立blog仓库"><a href="#前置必要操作二：-git-安装、注册GitHub账号并建立blog仓库" class="headerlink" title="前置必要操作二： git 安装、注册GitHub账号并建立blog仓库"></a>前置必要操作二： <code>git</code> 安装、注册GitHub账号并建立blog仓库</h4><ul>
+<li><p>下载 <code>git</code> 安装包、安装步骤详见：[Windows系统Git安装教程（详解Git安装过程）](<a target="_blank" rel="noopener" href="https://www.cnblogs.com/xueweisuoyong/p/11914045.html">Windows系统Git安装教程（详解Git安装过程） - 学为所用 - 博客园 (cnblogs.com)</a>)</p>
+</li>
+<li><p>注册GitHub账号步骤详见：自行百度教程。</p>
+</li>
+<li><p>生成 SSH key</p>
+<ul>
+<li><p>生成SSH key</p>
+<ul>
+<li><p>回到命令提示符(管理员)，将命令中的<code>your_email@email.com</code>换成自己注册GitHub的邮箱，运行。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;your_email@email.com&quot;</span><br></pre></td></tr></table></figure></li>
+<li><p>生成过程中会多次要求确认，不停按回车即可</p>
+</li>
+</ul>
+</li>
+<li><p>查看生成的SSH key</p>
+<ul>
+<li>打开 <code>C:\Users\Usersname\.ssh\</code> 其中，<code>Usersname</code>是你自己电脑的登录用户名。<img src="./github%E7%94%9F%E6%88%90%E5%AF%86%E9%92%A5%E6%A3%80%E6%9F%A5.png"></li>
+<li>其中，<code>id_rsa</code> 是私钥，<code>id_rsa.pub</code> 是公钥。公钥上传给服务器，私钥用来与公钥配对。</li>
+</ul>
+</li>
+<li><p>创建config文件</p>
+<ul>
+<li><p>在<code>.ssh\</code> 文件夹中，创建文件<code>config</code>(不带后缀名！！)，输入以下内容</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Host github.com</span><br><span class="line">User your_email@email.com</span><br><span class="line">Hostname ssh.github.com</span><br><span class="line">PreferredAuthentications publickey</span><br><span class="line">IdentityFile C:\Users\Usersname\.ssh\id_rsa</span><br><span class="line">Port 443</span><br></pre></td></tr></table></figure>
+
+<p>其中，<code>your_email@email.com</code>换成自己注册GitHub的邮箱</p>
+<p><code>C:\Users\Usersname\.ssh\id_rsa</code>中的<code>Usersname</code>换成你自己电脑的登录用户名</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>将生成的 SSH key 公钥上传至GitHub</p>
+<ul>
+<li>打开<code>C:\Users\Usersname\.ssh\id_rsa.pub</code>，也就是刚才生成的 SSH key 公钥。<br><code>Ctrl+A</code>全选，<code>Ctrl+C</code>复制，确保全部复制不能有遗漏。</li>
+<li>打开浏览器进入GitHub并登录自己账号，按图操作上传 SSH key 公钥。<img src="./github上传密钥.png"  /><img src="./github上传密钥2.png" style="zoom:67%;" /> </li>
+</ul>
+</li>
+<li><p>建立blog仓库，并复制SSH仓库地址，留待后用。</p>
+<ul>
+<li>新建仓库：<img src="./github创建仓库1.png" style="zoom:67%;" /></li>
+<li>仓库建立完成，复制SSH仓库地址（留待后用）<img src="./github创建仓库2.png" style="zoom:67%;" /></li>
+</ul>
+</li>
+<li><p><strong>阶段检查</strong></p>
+<ul>
+<li><p>回到命令提示符(管理员)，输入命令</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure>
+
+<p>若提示 <code>You&#39;ve successfully authenticated</code>，则一切顺利。</p>
+</li>
+<li><p>错误：输入上述命令提示 <code>ssh: connect to host github.com port 22: Connection refused</code><br>检查自己建立的config文件第二行与第五行是否正确。</p>
+</li>
+<li><p>总结：到此要能保证SSH可以链接，并且得到了建立的仓库的 ssh 地址</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="开始建立博客"><a href="#开始建立博客" class="headerlink" title="开始建立博客"></a>开始建立博客</h4><ul>
+<li><p>安装 hexo</p>
+<ul>
+<li><p>右键状态栏中的win图标，打开 命令提示符(管理员)</p>
+</li>
+<li><p>在 命令提示符(管理员) 中输入命令：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm install hexo-cli -g</span><br></pre></td></tr></table></figure></li>
+<li><p>安装完成后，输入 <code>hexo -v</code> 能正确提示版本号即安装成功</p>
+</li>
+</ul>
+</li>
+<li><p>建立并切换至 blog 文件夹</p>
+<ul>
+<li><p>使用文件管理器，在合适的位置新建并进入该文件夹，文件夹名不限（方便以后管理，自己能记住）</p>
+</li>
+<li><p>复制你建立的文件夹的绝对路径，方法看图：<br><img src="./hexo%E5%A4%8D%E5%88%B6%E6%96%87%E4%BB%B6%E5%A4%B9%E7%BB%9D%E5%AF%B9%E8%B7%AF%E5%BE%84.png"></p>
+</li>
+<li><p>回到命令提示符(管理员)，切换到建立的文件夹所在路径。</p>
+<ol>
+<li><p>切换盘符。命令提示符(管理员)打开时指向的文件夹默认为c盘，而我们新建的文件夹不在c盘的话就需要先切换盘符。<br> 切盘符方法：假如建立的文件夹在D盘，则输入d+冒号，即 <code>d:</code> 在E盘则输入 <code>e:</code>，以此类推。</p>
+</li>
+<li><p>切换路径，即 cd+空格+刚才复制的绝对路径。(切换前后的盘符不一致会切换失败)</p>
+</li>
+<li><p>示例：我建立的文件夹名 <code>hexo_blog</code> 它的绝对路径为 <code>E:\Program_Files\hexo_blog</code>，则：</p>
+</li>
+</ol>
+  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">e:</span><br><span class="line">cd E:\Program_Files\hexo_blog</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>本地初始化 hexo </p>
+<ul>
+<li><p>命令提示符(管理员) 中输入 <code>hexo init</code> 回车</p>
+</li>
+<li><p>完成后检查建立的文件夹内，多出以下文件。<br><img src="./hexo%E5%88%9D%E5%A7%8B%E5%8C%96%E6%A3%80%E6%9F%A5.png"></p>
+</li>
+<li><p>启动并查看 hexo 本地服务(此时只有本地能访问它)</p>
+<ul>
+<li>命令提示符(管理员) 中输入 <code>hexo s</code> 回车，提示如下内容：<br><img src="./hexo%E5%90%AF%E5%8A%A8%E6%9C%AC%E5%9C%B0%E6%9C%8D%E5%8A%A11.png"></li>
+<li>打开浏览器，输入提示的网址 <code>http://localhost:4000</code> 即可查看效果。</li>
+<li>按 <code>Crtl+C</code> 停止</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>推送到页面到GitHub</p>
+<ul>
+<li><p>修改配置文件</p>
+<ul>
+<li><p>打开自己建立的文件夹内的 <code>_config.yml</code> 文件（记事本、notepad++ 都能打开）</p>
+</li>
+<li><p>拉到最后，找到deploy项，改为以下内容：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repository: 前置必要操作三：注册GitHub账号并建立blog仓库 中复制的仓库地址</span><br><span class="line">  branch: main</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>在blog目录下安装git部署插件</p>
+<ul>
+<li><p>回到命令提示符(管理员)，切换到建立的文件夹所在路径。</p>
+</li>
+<li><p>输入安装git部署插件命令，并清理、生成页面，推送到GitHub。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cnpm install hexo-deployer-git --save</span><br><span class="line">hexo clean</span><br><span class="line">hexo generate</span><br><span class="line">hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>到此不报错即为成功。</p>
+</li>
+</ul>
+</li>
+<li><p>回到GitHub，打开建立的仓库。至此可以在任何联网设备上访问你建立的博客。<img src="./GitHubPages1.png"></p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="美化你的博客"><a href="#美化你的博客" class="headerlink" title="美化你的博客"></a>美化你的博客</h4><ul>
+<li><p>下载yilia主题</p>
+<ul>
+<li><p>回到命令提示符(管理员)，切换到建立的blog文件夹所在路径。输入</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone git@github.com:litten/hexo-theme-yilia.git themes/yilia</span><br></pre></td></tr></table></figure>
+
+<p>将别人的博客模板下载到<code>blog/themes/yilia</code></p>
+</li>
+<li><p>修改 <code>_config.yml</code> 文件的 <code>theme</code> 项为 <code>yilia</code>（下载的主题名为 <code>yilia</code> ）<br>命令提示符(管理员)，切换到建立的blog文件夹所在路径。输入</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo generate</span><br><span class="line">hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>将新网页推送到GitHub。</p>
+</li>
+</ul>
+</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/09/11/%E5%BB%BA%E7%AB%8B+%E7%BE%8E%E5%8C%96%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E8%B6%85%E8%AF%A6%E7%BB%86%E6%95%99%E5%AD%A6(GitHub+HEXO)/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
