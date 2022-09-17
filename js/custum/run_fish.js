@@ -12,9 +12,9 @@ function fish() {
         '<div class="container" id="jsi-flying-fish-container"></div>'
       ),
       $("body").append(
-        '<script src="https://cdn.jsdelivr.net/gh/xiaopengand/blogCdn@latest/fish.js"></script>'
+        '<script src="/js/custum/fish.js"></script>'
       ),
       this
     );
   }
-btf.isJqueryLoad(fish)
+fish()
