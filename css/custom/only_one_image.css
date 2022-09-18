@@ -1,0 +1,106 @@
+/*********************************** 一图流设置 ***********************************/
+/* 页脚透明 */
+#footer {
+  background: transparent !important;
+}
+
+/* 页脚黑色透明玻璃效果移除 */
+#footer::before {
+  background: transparent !important;
+}
+
+/* 头图透明 */
+#page-header {
+  background: transparent !important;
+}
+
+/* 头图遮罩层透明 */
+#page-header::before {
+  background: transparent !important;
+}
+
+/* top-img黑色透明玻璃效果移除 */
+#page-header.post-bg:before {
+  background-color: transparent !important;
+}
+
+/* 夜间模式伪类遮罩层透明 */
+[data-theme="dark"] #footer::before {
+  background: transparent !important;
+}
+
+[data-theme="dark"] #page-header::before {
+  background: transparent !important;
+}
+
+/*********************************** 白天模式设置 ***********************************/
+/* 首页文章卡片 */
+#recent-posts>.recent-post-item {
+  background: rgba(255, 255, 255, 0.8);
+}
+
+/* 首页侧栏卡片 */
+.card-widget {
+  background: rgba(255, 255, 255, 0.8) !important;
+}
+
+/* 文章页面正文背景 */
+div#post {
+  background: rgba(255, 255, 255, 0.8);
+}
+
+/* 分页页面 */
+div#page {
+  background: rgba(255, 255, 255, 0.8);
+}
+
+/* 归档页面 */
+div#archive {
+  background: rgba(255, 255, 255, 0.8);
+}
+
+/* 标签页面 */
+div#tag {
+  background: rgba(255, 255, 255, 0.8);
+}
+
+/* 分类页面 */
+div#category {
+  background: rgba(255, 255, 255, 0.8);
+}
+
+/*********************************** 夜间模式设置 ***********************************/
+/* 首页文章卡片 */
+[data-theme="dark"] #recent-posts>.recent-post-item {
+  background: rgba(32, 32, 32, 0.5);
+}
+
+/* 首页侧栏卡片 */
+[data-theme="dark"] .card-widget {
+  background: rgba(32, 32, 32, 0.5) !important;
+}
+
+/* 文章页面正文背景 */
+[data-theme="dark"] div#post {
+  background: rgba(32, 32, 32, 0.5);
+}
+
+/* 分页页面 */
+[data-theme="dark"] div#page {
+  background: rgba(32, 32, 32, 0.5);
+}
+
+/* 归档页面 */
+[data-theme="dark"] div#archive {
+  background: rgba(32, 32, 32, 0.5);
+}
+
+/* 标签页面 */
+[data-theme="dark"] div#tag {
+  background: rgba(32, 32, 32, 0.5);
+}
+
+/* 分类页面 */
+[data-theme="dark"] div#category {
+  background: rgba(32, 32, 32, 0.5);
+}
